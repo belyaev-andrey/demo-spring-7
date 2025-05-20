@@ -5,11 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import test.jetbrains.spring7.demospring7.registrar.Person;
-import test.jetbrains.spring7.demospring7.registrar.PersonRegistrar;
 import test.jetbrains.spring7.demospring7.services.HelloService;
-import test.jetbrains.spring7.demospring7.services.NameService;
 
 import java.util.stream.Collectors;
 
@@ -18,12 +15,10 @@ public class HelloController {
 
     private final HelloService helloService;
     private final ApplicationContext applicationContext;
-    private final NameService nameService;
 
-    public HelloController(HelloService helloService, ApplicationContext applicationContext, NameService nameService) {
+    public HelloController(HelloService helloService, ApplicationContext applicationContext) {
         this.helloService = helloService;
         this.applicationContext = applicationContext;
-        this.nameService = nameService;
     }
 
     @GetMapping("/")
@@ -46,9 +41,6 @@ public class HelloController {
     @GetMapping("/register")
     @ResponseBody
     public String register() {
-        AnnotationConfigWebApplicationContext ctx =  (AnnotationConfigWebApplicationContext)applicationContext;
-        ctx.register(new PersonRegistrar(nameService));
-        ctx.refresh();
         return applicationContext.getBeansOfType(Person.class).values().stream()
                 .map(p -> p.name)
                 .sorted()

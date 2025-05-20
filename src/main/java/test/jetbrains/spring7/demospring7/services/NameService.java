@@ -3,7 +3,6 @@ package test.jetbrains.spring7.demospring7.services;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
