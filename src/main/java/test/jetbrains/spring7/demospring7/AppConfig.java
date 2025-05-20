@@ -8,7 +8,6 @@ import test.jetbrains.spring7.demospring7.registrar.PersonRegistrar;
 
 @Configuration
 @EnableWebMvc
-@Import(PersonRegistrar.class)
 @ComponentScan(basePackages = "test.jetbrains.spring7.demospring7")
 public class AppConfig {
 }
