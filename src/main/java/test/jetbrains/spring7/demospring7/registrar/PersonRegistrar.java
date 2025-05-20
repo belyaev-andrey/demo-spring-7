@@ -18,9 +18,8 @@ public class PersonRegistrar implements BeanRegistrar {
     @Override
     public void register(BeanRegistry registry, Environment env) {
         nameService.generateNames().forEach(name ->
-                registry.registerBean(UUID.randomUUID().toString(), Person.class, personSpec -> {
-                    personSpec.supplier(ctx -> new Person(name));
-                })
+                registry.registerBean(UUID.randomUUID().toString(), Person.class,
+                        personSpec -> personSpec.supplier(ctx -> new Person(name)))
         );
     }
 }

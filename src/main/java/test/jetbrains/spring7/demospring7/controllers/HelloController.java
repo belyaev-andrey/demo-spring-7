@@ -1,10 +1,6 @@
 package test.jetbrains.spring7.demospring7.controllers;
 
-import org.springframework.aop.support.annotation.AnnotationMethodMatcher;
-import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.GenericApplicationContext;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,8 +11,6 @@ import test.jetbrains.spring7.demospring7.registrar.PersonRegistrar;
 import test.jetbrains.spring7.demospring7.services.HelloService;
 import test.jetbrains.spring7.demospring7.services.NameService;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
